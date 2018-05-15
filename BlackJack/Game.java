@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class Game
 {
-    private Player p;
+    private Player u;
     private Player d;
     private Deck deckOfCards;   
     /**
@@ -17,35 +17,34 @@ public class Game
     public Game()
     {
         this.deckOfCards = new Deck();
-        p = new Player("p", 100);
+        u = new Player("U", 100);
         d = new Dealer();
-        
-        Line0();
+        Greeting();
         playGame();
     }
     
     public void playGame(){
         this.deckOfCards.initializeDeck();
         this.deckOfCards.shuffle();
-        int b = p.bet();      
-        this.p.hand = this.deckOfCards.deal();
+        int b = u.bet();      
+        this.u.hand = this.deckOfCards.deal();
         this.d.hand = this.deckOfCards.deal();    
         playerTurn();
         dealerTurn();       
         int win = Winner();     
         if(win == -1){
-            Line4();
-            System.out.println("\nYou have " + p.getCash() + " dollars");
+            DealerWins();
+            System.out.println("\nYou have " +u.getCash() + " dollars");
         }
         else if(win == 0){
-            Line3();
-            p.addCash(b);
-            System.out.println("\nYou have " + p.getCash() + " dollars");
+            TiePay();
+            u.addCash(b);
+            System.out.println("\nYou have " + u.getCash() + " dollars");
         }
         else{
-            Line2();
-            p.addCash(2*b);
-            System.out.println("\nYou have " + p.getCash() + " dollars");
+            PlayerWins();
+            u.addCash(2*b);
+            System.out.println("\nYou have " + u.getCash() + " dollars");
         }     
         System.out.println("Do you want to play another game? (y/n)");
         Scanner scan = new Scanner(System.in);
@@ -58,8 +57,8 @@ public class Game
         }        
     }    
     public int Winner(){
-        int pTotal = p.handTotal();
-        int dTotal = d.handTotal();        
+        int pTotal = u.handSize();
+        int dTotal = d.handSize();        
         // if 1 player wins, if -1 dealer wins, if 0 tie
         int winner = 0;                
         if(pTotal > 21 && dTotal <= 21){
@@ -67,6 +66,9 @@ public class Game
         }
         else if(dTotal > 21 && pTotal <= 21){
             winner = 1;
+        }
+        else if(dTotal == pTotal){
+            winner = 0;
         }
         else if(pTotal <= 21 && dTotal <= 21){
             if(pTotal > dTotal){
@@ -81,9 +83,9 @@ public class Game
     public void endGame(){
         Line5();
     }   
-    public void Line0(){
+    public void Greeting(){
         System.out.println("Welcome to BlackJack");
-        System.out.println("\nYou have " + p.getCash() + " dollars");
+        System.out.println("\nYou have " + u.getCash() + " dollars");
         System.out.println();
     }    
     public void Line1(){
@@ -94,29 +96,29 @@ public class Game
         System.out.println("hit");
         System.out.println("stand");
     }    
-    public void Line2(){
+    public void PlayerWins(){
         System.out.println("\nYou win");
     }   
-    public void Line3(){
+    public void TiePay(){
         System.out.println("\nIt's a tie");
     }    
-    public void Line4(){
+    public void DealerWins(){
         System.out.println("\nThe dealer wins");
     }    
     public void Line5(){
-        System.out.println("Your final amount of money " + + p.getCash() + " dollars");
+        System.out.println("Your final amount of money " + + u.getCash() + " dollars");
         System.out.println();
         System.out.println("Good Game");
     }    
     public void printPlayerHand(){
         System.out.println("\nYour hand is: ");
-        for(Card c : p.hand){
+        for(Card c : u.hand){
             System.out.println(c);
         }
     }    
     public void playerTurn(){
         while(true){
-            if(p.handTotal() >= 21){
+            if(u.handSize() >= 21){
                 printPlayerHand();
                 System.out.println("\nThe dealer is showing: ");
                 System.out.println(d.hand.get(0));
@@ -126,24 +128,24 @@ public class Game
             Scanner scan = new Scanner(System.in);
             String choice = scan.nextLine();            
             if(choice.equals("hit")){
-                this.p.hand.add(deckOfCards.getTopCard());
+                this.u.hand.add(deckOfCards.getFirstCard());
             }else{
                 break;
             }
         }
     }
     public void dealerTurn(){
-        while(d.handTotal() < 17){
-            this.d.hand.add(deckOfCards.getTopCard());
+        while(d.handSize() < 17){
+            this.d.hand.add(deckOfCards.getFirstCard());
         }        
-        System.out.println("\nThe dealer has: ");
+        System.out.println("\nThe dealer has: " + d.handSize());
         for(Card c : d.hand){
             System.out.println(c);
         }
     }    
     public void showHands(){
         System.out.println("Player");
-        for(Card c: p.hand){
+        for(Card c: u.hand){
             System.out.println(c);
         }
         System.out.println("Dealer");

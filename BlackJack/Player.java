@@ -8,10 +8,10 @@ import java.util.Scanner;
  */
 public class Player
 {
-    private String name;
-    private int cash;
-    private int handTotal;
-    public ArrayList<Card> hand;
+    private String name;//name
+    private int cash;//total cash
+    private int handSize;//Hand total
+    public ArrayList<Card> hand;//to hold Cards
     /**
      * Constructor for objects of class Player
      */
@@ -22,27 +22,27 @@ public class Player
     }    
     public int bet(){
         Scanner scan = new Scanner(System.in);
-        System.out.println("What is your bet");
+        System.out.println("Please State Your Bet");
         int b = scan.nextInt();
         this.cash -= b;
         return b;
     }    
-    public int handTotal(){
+    public int handSize(){
         int total = 0;
-        int aceCount = 0;
+        int aceTotal = 0;
         for(Card c : hand){
             if(c.getValue() == 1){
-                aceCount += 1;
+                aceTotal += 1;
             }
             total += c.getValue();
-        }        
-        if(aceCount > 0 && total + 10 < 22){
+        }         
+        if(aceTotal > 0 && total + 10 < 22){
             total += 10;
         }       
         return total;
     }    
     public String toString(){
-        return "";
+        return null;
     }    
     public int getCash(){
         return this.cash;

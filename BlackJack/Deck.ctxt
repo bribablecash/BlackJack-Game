@@ -13,5 +13,5 @@ comment4.target=void\ shuffle()
 comment5.params=
 comment5.target=java.util.ArrayList\ deal()
 comment6.params=
-comment6.target=Card\ getTopCard()
+comment6.target=Card\ getFirstCard()
 numComments=7

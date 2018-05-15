@@ -19,14 +19,14 @@ public class Deck
     }    
     public void initializeDeck(){
         String[] suits = {"Hearts", "Clubs", "Spades", "Diamonds"};
-        String[] ranks = {"Ace", "two", "three", "four", "five", "six", "seven",
-                            "eight", "nine", "ten", "jack", "queen", "king"};
+        String[] ranks = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven",
+                            "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
                             
         for (String s : suits){
             int value = 1;
             for (String r : ranks){
                 if(value > 10){
-                    FaceCard temp = new FaceCard(s, r);
+                    Card temp = new Card(value,s, r);
                     this.deck.add(temp);
                 } else{
                     Card temp = new Card(value, s, r);
@@ -60,7 +60,7 @@ public class Deck
         }       
         return hand;
     }    
-    public Card getTopCard(){
+    public Card getFirstCard(){
         Card temp = this.deck.get(0);
         this.deck.remove(0);
         return temp;

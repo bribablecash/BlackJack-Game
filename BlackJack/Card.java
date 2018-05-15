@@ -1,5 +1,3 @@
-
-
 public class Card
 {
     private int value;
@@ -27,12 +25,3 @@ public class Card
         return "Suit: " + this.suit + " Rank: " + this.rank;
     }    
 }
-
-
-
-
-
-
-
-
-
