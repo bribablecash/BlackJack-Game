@@ -34,17 +34,17 @@ public class Game
         int win = Winner();     
         if(win == -1){
             DealerWins();
-            System.out.println("\nYou have " +u.getCash() + " dollars");
+            System.out.println("You have " +u.getCash() + " dollars");
         }
         else if(win == 0){
             TiePay();
             u.addCash(b);
-            System.out.println("\nYou have " + u.getCash() + " dollars");
+            System.out.println("You have " + u.getCash() + " dollars");
         }
         else{
             PlayerWins();
             u.addCash(2*b);
-            System.out.println("\nYou have " + u.getCash() + " dollars");
+            System.out.println("You have " + u.getCash() + " dollars");
         }     
         System.out.println("Do you want to play another game? (y/n)");
         Scanner scan = new Scanner(System.in);
@@ -81,7 +81,7 @@ public class Game
         return winner;
     }    
     public void endGame(){
-        Line5();
+        GameOver();
     }   
     public void Greeting(){
         System.out.println("Welcome to BlackJack");
@@ -105,7 +105,7 @@ public class Game
     public void DealerWins(){
         System.out.println("\nThe dealer wins");
     }    
-    public void Line5(){
+    public void GameOver(){
         System.out.println("Your final amount of money " + + u.getCash() + " dollars");
         System.out.println();
         System.out.println("Good Game");

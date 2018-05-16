@@ -21,18 +21,10 @@ public class Deck
         String[] suits = {"Hearts", "Clubs", "Spades", "Diamonds"};
         String[] ranks = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven",
                             "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
-                            
-        for (String s : suits){
-            int value = 1;
-            for (String r : ranks){
-                if(value > 10){
-                    Card temp = new Card(value,s, r);
-                    this.deck.add(temp);
-                } else{
-                    Card temp = new Card(value, s, r);
-                    this.deck.add(temp);
-                }                
-                value++;
+        int[] value = {1,2,3,4,5,6,7,8,9,10,10,10,10};
+        for (int h = 0; h < 4; h++){
+            for (int f = 0; f < 13; f++ ){
+                deck.add(new Card(value[f], suits[h], ranks[f]));
             }
         }
     }    
