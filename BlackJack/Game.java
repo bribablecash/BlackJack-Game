@@ -85,25 +85,25 @@ public class Game
     }   
     public void Greeting(){
         System.out.println("Welcome to BlackJack");
-        System.out.println("\nYou have " + u.getCash() + " dollars");
+        System.out.println("You have " + u.getCash() + " dollars");
         System.out.println();
     }    
-    public void Line1(){
+    public void StartingBet(){
         printPlayerHand();        
-        System.out.println("\nThe dealer is showing: ");
+        System.out.println("The dealer is showing: ");
         System.out.println(d.hand.get(0));        
-        System.out.println("\nChoose one of the following:");
+        System.out.println("Choose one of the following:");
         System.out.println("hit");
         System.out.println("stand");
     }    
     public void PlayerWins(){
-        System.out.println("\nYou win");
+        System.out.println("You win");
     }   
     public void TiePay(){
-        System.out.println("\nIt's a tie");
+        System.out.println("It's a tie");
     }    
     public void DealerWins(){
-        System.out.println("\nThe dealer wins");
+        System.out.println("The dealer wins");
     }    
     public void GameOver(){
         System.out.println("Your final amount of money " + + u.getCash() + " dollars");
@@ -111,7 +111,7 @@ public class Game
         System.out.println("Good Game");
     }    
     public void printPlayerHand(){
-        System.out.println("\nYour hand is: ");
+        System.out.println("Your hand is: ");
         for(Card c : u.hand){
             System.out.println(c);
         }
@@ -120,11 +120,11 @@ public class Game
         while(true){
             if(u.handSize() >= 21){
                 printPlayerHand();
-                System.out.println("\nThe dealer is showing: ");
+                System.out.println("The dealer is showing: ");
                 System.out.println(d.hand.get(0));
                 break;
             }           
-            Line1();            
+            StartingBet();            
             Scanner scan = new Scanner(System.in);
             String choice = scan.nextLine();            
             if(choice.equals("hit")){
@@ -138,7 +138,7 @@ public class Game
         while(d.handSize() < 17){
             this.d.hand.add(deckOfCards.getFirstCard());
         }        
-        System.out.println("\nThe dealer has: " + d.handSize());
+        System.out.println("The dealer has: " + d.handSize());
         for(Card c : d.hand){
             System.out.println(c);
         }

@@ -27,12 +27,7 @@ public class Deck
                 deck.add(new Card(value[f], suits[h], ranks[f]));
             }
         }
-    }    
-    public void printDeck(){
-        for(Card c: this.deck){
-            System.out.println(c);
-        }
-    }   
+    }     
     public void shuffle(){
         ArrayList<Card> temp = new ArrayList();
         Random rng = new Random();
