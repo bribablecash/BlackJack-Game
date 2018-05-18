@@ -15,18 +15,20 @@ public class Player
     /**
      * Constructor for objects of class Player
      */
-    public Player(String nm, int c)
+    public Player(String nm, int c, int h)
     {
         this.name = nm;
         this.cash = c;
+        this.handSize = h;
     }    
     public int bet(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Please State Your Bet");
-        int b = scan.nextInt();
-        this.cash -= b;
-        return b;
+        int bet = scan.nextInt();
+        this.cash -= bet;
+        return bet;
     }    
+    
     public int handSize(){
         int total = 0;
         int aceTotal = 0;
@@ -47,8 +49,8 @@ public class Player
     public int getCash(){
         return this.cash;
     }
-    public void addCash(int a){
-        this.cash += a;
+    public void addCash(int t){
+        this.cash += t;
     }       
 }
 

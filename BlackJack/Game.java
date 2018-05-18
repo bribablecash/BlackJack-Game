@@ -11,13 +11,14 @@ public class Game
     private Player u;
     private Player d;
     private Deck deckOfCards;   
+    private int c;
     /**
      * Constructor for objects of class Game
      */
     public Game()
     {
         this.deckOfCards = new Deck();
-        u = new Player("U", 100);
+        u = new Player("U", 100, 2);
         d = new Dealer();
         Greeting();
         playGame();
@@ -51,10 +52,7 @@ public class Game
         String cont = scan.nextLine();       
         if(cont.equals("y")){
             playGame();
-        }
-        else{
-            endGame();
-        }        
+        }      
     }    
     public int Winner(){
         int pTotal = u.handSize();
@@ -80,9 +78,6 @@ public class Game
         }        
         return winner;
     }    
-    public void endGame(){
-        Line5();
-    }   
     public void Greeting(){
         System.out.println("Welcome to BlackJack");
         System.out.println("\nYou have " + u.getCash() + " dollars");
@@ -104,15 +99,10 @@ public class Game
     }    
     public void DealerWins(){
         System.out.println("\nThe dealer wins");
-    }    
-    public void Line5(){
-        System.out.println("Your final amount of money " + + u.getCash() + " dollars");
-        System.out.println();
-        System.out.println("Good Game");
-    }    
+    }     
     public void printPlayerHand(){
         System.out.println("\nYour hand is: ");
-        for(Card c : u.hand){
+        for(c = 0; c < u.hand.size(); c++){
             System.out.println(c);
         }
     }    
@@ -123,8 +113,7 @@ public class Game
                 System.out.println("\nThe dealer is showing: ");
                 System.out.println(d.hand.get(0));
                 break;
-            }           
-            Line1();            
+            }              
             Scanner scan = new Scanner(System.in);
             String choice = scan.nextLine();            
             if(choice.equals("hit")){
@@ -139,17 +128,17 @@ public class Game
             this.d.hand.add(deckOfCards.getFirstCard());
         }        
         System.out.println("\nThe dealer has: " + d.handSize());
-        for(Card c : d.hand){
+        for(c = 0 ;c < d.hand.size(); c++){
             System.out.println(c);
         }
     }    
     public void showHands(){
         System.out.println("Player");
-        for(Card c: u.hand){
+        for(c = 0; c < u.hand.size(); c++){
             System.out.println(c);
         }
         System.out.println("Dealer");
-        for( Card c: d.hand){
+        for(c = 0; c < d.hand.size(); c++){
             System.out.println(c);
         }
     }

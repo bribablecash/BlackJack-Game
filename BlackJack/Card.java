@@ -18,10 +18,7 @@ public class Card
     public String getSuit(){
         return this.suit;
     }
-    public String getRank(){
-        return this.rank;
-    } 
-    public String toString(){
+        public String toString(){
         return "Suit: " + this.suit + " Rank: " + this.rank;
     }    
 }
