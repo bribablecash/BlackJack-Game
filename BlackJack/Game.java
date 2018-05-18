@@ -35,17 +35,17 @@ public class Game
         int win = Winner();     
         if(win == -1){
             DealerWins();
-            System.out.println("\nYou have " +u.getCash() + " dollars");
+            System.out.println("You have " +u.getCash() + " dollars");
         }
         else if(win == 0){
             TiePay();
             u.addCash(b);
-            System.out.println("\nYou have " + u.getCash() + " dollars");
+            System.out.println("You have " + u.getCash() + " dollars");
         }
         else{
             PlayerWins();
             u.addCash(2*b);
-            System.out.println("\nYou have " + u.getCash() + " dollars");
+            System.out.println("You have " + u.getCash() + " dollars");
         }     
         System.out.println("Do you want to play another game? (y/n)");
         Scanner scan = new Scanner(System.in);
@@ -78,31 +78,50 @@ public class Game
         }        
         return winner;
     }    
+<<<<<<< HEAD
+=======
+    public void endGame(){
+        GameOver();
+    }   
+>>>>>>> 7911bdd4d9acdd8b7bad726b2b9edd7dea2cbf85
     public void Greeting(){
         System.out.println("Welcome to BlackJack");
-        System.out.println("\nYou have " + u.getCash() + " dollars");
+        System.out.println("You have " + u.getCash() + " dollars");
         System.out.println();
     }    
-    public void Line1(){
+    public void StartingBet(){
         printPlayerHand();        
-        System.out.println("\nThe dealer is showing: ");
+        System.out.println("The dealer is showing: ");
         System.out.println(d.hand.get(0));        
-        System.out.println("\nChoose one of the following:");
+        System.out.println("Choose one of the following:");
         System.out.println("hit");
         System.out.println("stand");
     }    
     public void PlayerWins(){
-        System.out.println("\nYou win");
+        System.out.println("You win");
     }   
     public void TiePay(){
-        System.out.println("\nIt's a tie");
+        System.out.println("It's a tie");
     }    
     public void DealerWins(){
+<<<<<<< HEAD
         System.out.println("\nThe dealer wins");
     }     
     public void printPlayerHand(){
         System.out.println("\nYour hand is: ");
         for(c = 0; c < u.hand.size(); c++){
+=======
+        System.out.println("The dealer wins");
+    }    
+    public void GameOver(){
+        System.out.println("Your final amount of money " + + u.getCash() + " dollars");
+        System.out.println();
+        System.out.println("Good Game");
+    }    
+    public void printPlayerHand(){
+        System.out.println("Your hand is: ");
+        for(Card c : u.hand){
+>>>>>>> 7911bdd4d9acdd8b7bad726b2b9edd7dea2cbf85
             System.out.println(c);
         }
     }    
@@ -110,10 +129,15 @@ public class Game
         while(true){
             if(u.handSize() >= 21){
                 printPlayerHand();
-                System.out.println("\nThe dealer is showing: ");
+                System.out.println("The dealer is showing: ");
                 System.out.println(d.hand.get(0));
                 break;
+<<<<<<< HEAD
             }              
+=======
+            }           
+            StartingBet();            
+>>>>>>> 7911bdd4d9acdd8b7bad726b2b9edd7dea2cbf85
             Scanner scan = new Scanner(System.in);
             String choice = scan.nextLine();            
             if(choice.equals("hit")){
@@ -127,8 +151,13 @@ public class Game
         while(d.handSize() < 17){
             this.d.hand.add(deckOfCards.getFirstCard());
         }        
+<<<<<<< HEAD
         System.out.println("\nThe dealer has: " + d.handSize());
         for(c = 0 ;c < d.hand.size(); c++){
+=======
+        System.out.println("The dealer has: " + d.handSize());
+        for(Card c : d.hand){
+>>>>>>> 7911bdd4d9acdd8b7bad726b2b9edd7dea2cbf85
             System.out.println(c);
         }
     }    
