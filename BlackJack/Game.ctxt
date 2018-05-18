@@ -5,37 +5,29 @@ comment1.params=
 comment1.target=Game()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Game\r\n
 comment10.params=
-<<<<<<< HEAD
-comment10.target=void\ playerTurn()
-=======
-comment10.target=void\ GameOver()
->>>>>>> 7911bdd4d9acdd8b7bad726b2b9edd7dea2cbf85
+comment10.target=void\ printPlayerHand()
 comment11.params=
-comment11.target=void\ dealerTurn()
+comment11.target=void\ GameOver()
 comment12.params=
-comment12.target=void\ showHands()
+comment12.target=void\ playerTurn()
+comment13.params=
+comment13.target=void\ dealerTurn()
+comment14.params=
+comment14.target=void\ showHands()
 comment2.params=
 comment2.target=void\ playGame()
 comment3.params=
 comment3.target=int\ Winner()
 comment4.params=
-comment4.target=void\ Greeting()
+comment4.target=void\ endGame()
 comment5.params=
-<<<<<<< HEAD
-comment5.target=void\ Line1()
-comment6.params=
-comment6.target=void\ PlayerWins()
-comment7.params=
-comment7.target=void\ TiePay()
-=======
 comment5.target=void\ Greeting()
 comment6.params=
 comment6.target=void\ StartingBet()
 comment7.params=
 comment7.target=void\ PlayerWins()
->>>>>>> 7911bdd4d9acdd8b7bad726b2b9edd7dea2cbf85
 comment8.params=
-comment8.target=void\ DealerWins()
+comment8.target=void\ TiePay()
 comment9.params=
-comment9.target=void\ printPlayerHand()
-numComments=13
+comment9.target=void\ DealerWins()
+numComments=15
